@@ -1,0 +1,4 @@
+{
+ "doctype":"DocType", "name":"Mobile Announcement Employee", "module":"Itqan Hr Mobile", "istable":1,
+ "field_order":["employee"], "fields":[{"fieldname":"employee","label":"Employee","fieldtype":"Link","options":"Employee","reqd":1,"in_list_view":1}]
+}

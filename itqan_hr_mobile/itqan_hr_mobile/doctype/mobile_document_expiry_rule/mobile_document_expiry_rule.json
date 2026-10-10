@@ -1,0 +1,14 @@
+{
+ "doctype":"DocType", "name":"Mobile Document Expiry Rule", "module":"Itqan Hr Mobile", "istable":1,
+ "field_order":["enabled","reference_doctype","date_field","employee_field","days_before_expiry","notification_title","notification_body","route"],
+ "fields":[
+  {"fieldname":"enabled","label":"Enabled","fieldtype":"Check","default":"1","in_list_view":1},
+  {"fieldname":"reference_doctype","label":"DocType","fieldtype":"Link","options":"DocType","reqd":1,"in_list_view":1},
+  {"fieldname":"date_field","label":"Date Field","fieldtype":"Data","reqd":1,"in_list_view":1},
+  {"fieldname":"employee_field","label":"Employee Field","fieldtype":"Data","reqd":1,"default":"employee"},
+  {"fieldname":"days_before_expiry","label":"Days Before Expiry","fieldtype":"Data","reqd":1,"description":"Comma-separated thresholds, for example: 30,14,7,1"},
+  {"fieldname":"notification_title","label":"Notification Title","fieldtype":"Data","reqd":1,"default":"Document Expiry Reminder"},
+  {"fieldname":"notification_body","label":"Notification Body","fieldtype":"Small Text","reqd":1,"default":"Your document expires on {expiry_date}."},
+  {"fieldname":"route","label":"Route","fieldtype":"Data"}
+ ]
+}

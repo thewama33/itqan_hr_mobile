@@ -1,0 +1,37 @@
+{
+  "doctype": "Workspace",
+  "name": "Mobile Notifications",
+  "label": "Mobile Notifications",
+  "title": "Mobile Notifications",
+  "module": "Itqan Hr Mobile",
+  "icon": "notification",
+  "public": 1,
+  "is_hidden": 0,
+  "content": "[{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Mobile Notifications</b></span>\",\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Mobile Notification Settings\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Mobile Notification\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Mobile Device\",\"col\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Mobile Announcement\",\"col\":3}}]",
+  "charts": [],
+  "links": [],
+  "number_cards": [],
+  "shortcuts": [
+    {
+      "label": "Mobile Notification Settings",
+      "link_to": "Mobile Notification Settings",
+      "type": "DocType"
+    },
+    {
+      "label": "Mobile Notification",
+      "link_to": "Mobile Notification",
+      "type": "DocType"
+    },
+    { "label": "Mobile Device", "link_to": "Mobile Device", "type": "DocType" },
+    {
+      "label": "Mobile Announcement",
+      "link_to": "Mobile Announcement",
+      "type": "DocType"
+    }
+  ],
+  "roles": [
+    { "role": "System Manager" },
+    { "role": "HR Manager" },
+    { "role": "HR User" }
+  ]
+}

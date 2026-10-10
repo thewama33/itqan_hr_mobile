@@ -1,0 +1,24 @@
+{
+ "doctype":"DocType", "name":"Mobile Announcement", "module":"Itqan Hr Mobile", "autoname":"ANN-.YYYY.-.#####", "is_submittable":1, "track_changes":1,
+ "field_order":["title","message","audience_type","company","department","branch","designation","specific_employees","publish_from","publish_to","priority","send_push","published"],
+ "fields":[
+  {"fieldname":"title","label":"Title","fieldtype":"Data","reqd":1,"in_list_view":1},
+  {"fieldname":"message","label":"Message","fieldtype":"Small Text","reqd":1},
+  {"fieldname":"audience_type","label":"Audience Type","fieldtype":"Select","options":"All Employees\nCompany\nDepartment\nBranch\nDesignation\nSelected Employees","default":"All Employees","reqd":1,"in_list_view":1},
+  {"fieldname":"company","label":"Company","fieldtype":"Link","options":"Company","mandatory_depends_on":"eval:doc.audience_type=='Company'"},
+  {"fieldname":"department","label":"Department","fieldtype":"Link","options":"Department","mandatory_depends_on":"eval:doc.audience_type=='Department'"},
+  {"fieldname":"branch","label":"Branch","fieldtype":"Link","options":"Branch","mandatory_depends_on":"eval:doc.audience_type=='Branch'"},
+  {"fieldname":"designation","label":"Designation","fieldtype":"Link","options":"Designation","mandatory_depends_on":"eval:doc.audience_type=='Designation'"},
+  {"fieldname":"specific_employees","label":"Selected Employees","fieldtype":"Table","options":"Mobile Announcement Employee","depends_on":"eval:doc.audience_type=='Selected Employees'"},
+  {"fieldname":"publish_from","label":"Publish From","fieldtype":"Datetime"},
+  {"fieldname":"publish_to","label":"Publish To","fieldtype":"Datetime"},
+  {"fieldname":"priority","label":"Priority","fieldtype":"Select","options":"Low\nNormal\nHigh","default":"Normal"},
+  {"fieldname":"send_push","label":"Send Push","fieldtype":"Check","default":"1"},
+  {"fieldname":"published","label":"Published","fieldtype":"Check","default":"0","read_only":1,"in_list_view":1}
+ ],
+ "permissions":[
+  {"role":"System Manager","read":1,"write":1,"create":1,"delete":1,"submit":1,"cancel":1,"amend":1,"report":1},
+  {"role":"HR Manager","read":1,"write":1,"create":1,"submit":1,"cancel":1,"amend":1,"report":1},
+  {"role":"HR User","read":1,"write":1,"create":1,"submit":1,"report":1}
+ ]
+}

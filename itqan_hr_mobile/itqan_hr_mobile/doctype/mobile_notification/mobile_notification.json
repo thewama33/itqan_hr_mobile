@@ -1,0 +1,26 @@
+{
+ "doctype":"DocType", "name":"Mobile Notification", "module":"Itqan Hr Mobile", "autoname":"hash", "engine":"InnoDB", "track_changes":0,
+ "field_order":["user","employee","notification_type","title","body","reference_doctype","reference_name","route","route_params_json","priority","read","read_at","push_sent","push_sent_at","push_status","retry_count","firebase_message_id","error_message","event_key"],
+ "fields":[
+  {"fieldname":"user","label":"User","fieldtype":"Link","options":"User","reqd":1,"in_list_view":1,"search_index":1},
+  {"fieldname":"employee","label":"Employee","fieldtype":"Link","options":"Employee","search_index":1},
+  {"fieldname":"notification_type","label":"Notification Type","fieldtype":"Data","reqd":1,"in_list_view":1,"search_index":1},
+  {"fieldname":"title","label":"Title","fieldtype":"Data","reqd":1,"in_list_view":1},
+  {"fieldname":"body","label":"Body","fieldtype":"Small Text","reqd":1},
+  {"fieldname":"reference_doctype","label":"Reference DocType","fieldtype":"Link","options":"DocType"},
+  {"fieldname":"reference_name","label":"Reference Name","fieldtype":"Dynamic Link","options":"reference_doctype","search_index":1},
+  {"fieldname":"route","label":"Route","fieldtype":"Data"},
+  {"fieldname":"route_params_json","label":"Route Params JSON","fieldtype":"Code","options":"JSON"},
+  {"fieldname":"priority","label":"Priority","fieldtype":"Select","options":"Low\nNormal\nHigh","default":"Normal"},
+  {"fieldname":"read","label":"Read","fieldtype":"Check","default":"0","in_list_view":1,"search_index":1},
+  {"fieldname":"read_at","label":"Read At","fieldtype":"Datetime"},
+  {"fieldname":"push_sent","label":"Push Sent","fieldtype":"Check","default":"0"},
+  {"fieldname":"push_sent_at","label":"Push Sent At","fieldtype":"Datetime"},
+  {"fieldname":"push_status","label":"Push Status","fieldtype":"Select","options":"Pending\nQueued\nSent\nFailed\nSkipped","default":"Pending","in_list_view":1,"search_index":1},
+  {"fieldname":"retry_count","label":"Retry Count","fieldtype":"Int","default":"0","read_only":1},
+  {"fieldname":"firebase_message_id","label":"Firebase Message ID","fieldtype":"Data","read_only":1},
+  {"fieldname":"error_message","label":"Error Message","fieldtype":"Small Text","read_only":1},
+  {"fieldname":"event_key","label":"Event Key","fieldtype":"Data","search_index":1,"unique":1}
+ ],
+ "permissions":[{"role":"System Manager","read":1,"report":1,"export":1}]
+}

@@ -5,6 +5,8 @@ app_description = "mobile app for attendance and employees services"
 app_email = "thewama33@gmail.com"
 app_license = "mit"
 
+required_apps = ["frappe"]
+
 # Apps
 # ------------------
 
@@ -143,24 +145,46 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	"Leave Application": {
+		"after_insert": "itqan_hr_mobile.events.leave.on_change",
+		"on_update": "itqan_hr_mobile.events.leave.on_change",
+		"on_cancel": "itqan_hr_mobile.events.leave.on_cancel",
+	},
+	"Attendance Request": {
+		"after_insert": "itqan_hr_mobile.events.attendance.after_insert",
+		"on_update": "itqan_hr_mobile.events.attendance.on_change",
+		"on_submit": "itqan_hr_mobile.events.attendance.on_submit",
+		"on_cancel": "itqan_hr_mobile.events.attendance.on_cancel",
+	},
+	"Employee Advance": {
+		"after_insert": "itqan_hr_mobile.events.advance.after_insert",
+		"on_update": "itqan_hr_mobile.events.advance.on_change",
+		"on_submit": "itqan_hr_mobile.events.advance.on_submit",
+	},
+	"Salary Slip": {"on_submit": "itqan_hr_mobile.events.salary.on_submit"},
+	"Shift Assignment": {
+		"after_insert": "itqan_hr_mobile.events.shift.after_insert",
+		"on_update": "itqan_hr_mobile.events.shift.on_change",
+	},
+	"Mobile Announcement": {"on_update": "itqan_hr_mobile.events.announcement.on_change"},
+}
 
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
+	"cron": {
+		"*/5 * * * *": ["itqan_hr_mobile.services.shift_reminders.process_shift_reminders"],
+	},
 # 	"all": [
 # 		"itqan_hr_mobile.tasks.all"
 # 	],
-# 	"daily": [
-# 		"itqan_hr_mobile.tasks.daily"
-# 	],
+	"daily": [
+		"itqan_hr_mobile.services.expiry.send_document_expiry_reminders",
+		"itqan_hr_mobile.services.maintenance.disable_stale_devices",
+	],
+	"hourly": ["itqan_hr_mobile.services.announcements.publish_due_announcements"],
 # 	"hourly": [
 # 		"itqan_hr_mobile.tasks.hourly"
 # 	],
@@ -170,7 +194,17 @@ app_license = "mit"
 # 	"monthly": [
 # 		"itqan_hr_mobile.tasks.monthly"
 # 	],
-# }
+}
+
+permission_query_conditions = {
+	"Mobile Device": "itqan_hr_mobile.permissions.device_query",
+	"Mobile Notification": "itqan_hr_mobile.permissions.notification_query",
+}
+
+has_permission = {
+	"Mobile Device": "itqan_hr_mobile.permissions.device_permission",
+	"Mobile Notification": "itqan_hr_mobile.permissions.notification_permission",
+}
 
 # Testing
 # -------

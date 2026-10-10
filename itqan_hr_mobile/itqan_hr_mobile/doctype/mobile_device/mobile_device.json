@@ -1,0 +1,20 @@
+{
+ "doctype": "DocType", "name": "Mobile Device", "module": "Itqan Hr Mobile", "autoname": "hash", "engine": "InnoDB",
+ "title_field": "device_name", "track_changes": 1,
+ "field_order": ["user", "employee", "device_id", "fcm_token", "platform", "device_name", "app_version", "os_version", "enabled", "last_seen", "token_updated_at", "created_from_ip"],
+ "fields": [
+  {"fieldname":"user","label":"User","fieldtype":"Link","options":"User","reqd":1,"in_list_view":1,"search_index":1},
+  {"fieldname":"employee","label":"Employee","fieldtype":"Link","options":"Employee","search_index":1},
+  {"fieldname":"device_id","label":"Device ID","fieldtype":"Data","reqd":1,"in_list_view":1,"search_index":1},
+  {"fieldname":"fcm_token","label":"FCM Token","fieldtype":"Long Text","reqd":1,"hidden":1},
+  {"fieldname":"platform","label":"Platform","fieldtype":"Select","options":"Android\niOS\nOther","default":"Other","in_list_view":1},
+  {"fieldname":"device_name","label":"Device Name","fieldtype":"Data","in_list_view":1},
+  {"fieldname":"app_version","label":"App Version","fieldtype":"Data"},
+  {"fieldname":"os_version","label":"OS Version","fieldtype":"Data"},
+  {"fieldname":"enabled","label":"Enabled","fieldtype":"Check","default":"1","in_list_view":1},
+  {"fieldname":"last_seen","label":"Last Seen","fieldtype":"Datetime"},
+  {"fieldname":"token_updated_at","label":"Token Updated At","fieldtype":"Datetime"},
+  {"fieldname":"created_from_ip","label":"Created From IP","fieldtype":"Data","read_only":1}
+ ],
+ "permissions": [{"role":"System Manager","read":1,"write":1,"create":1,"delete":1,"report":1,"export":1}]
+}

@@ -1,0 +1,39 @@
+{
+ "doctype":"DocType", "name":"Mobile Notification Settings", "module":"Itqan Hr Mobile", "issingle":1,
+ "field_order":["enabled","firebase_enabled","firebase_configuration","firebase_project_id","firebase_service_account","firebase_credentials_json","features","leave_notifications_enabled","attendance_notifications_enabled","employee_advance_notifications_enabled","salary_notifications_enabled","announcement_notifications_enabled","shift_notifications_enabled","shift_reminders","shift_start_reminder_enabled","shift_start_reminder_minutes","shift_end_reminder_enabled","shift_end_reminder_minutes","missing_checkin_reminder_enabled","missing_checkin_grace_minutes","document_expiry_notifications_enabled","manager_notifications_enabled","delivery","default_language","send_system_notification","max_retry_count","batch_size","device_stale_days","expiry_rules"],
+ "fields":[
+  {"fieldname":"enabled","label":"Enabled","fieldtype":"Check","default":"1"},
+  {"fieldname":"firebase_enabled","label":"Firebase Enabled","fieldtype":"Check","default":"1"},
+  {"fieldname":"firebase_configuration","label":"Firebase Configuration","fieldtype":"Section Break"},
+  {"fieldname":"firebase_project_id","label":"Firebase Project ID","fieldtype":"Data","read_only":1},
+  {"fieldname":"firebase_service_account","label":"Service Account","fieldtype":"Data","read_only":1},
+  {"fieldname":"firebase_credentials_json","label":"Encrypted Firebase Credentials","fieldtype":"Password","hidden":1},
+  {"fieldname":"features","label":"Features","fieldtype":"Section Break"},
+  {"fieldname":"leave_notifications_enabled","label":"Leave Notifications","fieldtype":"Check","default":"1"},
+  {"fieldname":"attendance_notifications_enabled","label":"Attendance Notifications","fieldtype":"Check","default":"1"},
+  {"fieldname":"employee_advance_notifications_enabled","label":"Employee Advance Notifications","fieldtype":"Check","default":"1"},
+  {"fieldname":"salary_notifications_enabled","label":"Salary Notifications","fieldtype":"Check","default":"1"},
+  {"fieldname":"announcement_notifications_enabled","label":"Announcement Notifications","fieldtype":"Check","default":"1"},
+  {"fieldname":"shift_notifications_enabled","label":"Shift Notifications","fieldtype":"Check","default":"1"},
+  {"fieldname":"shift_reminders","label":"Shift Reminders","fieldtype":"Section Break","depends_on":"shift_notifications_enabled"},
+  {"fieldname":"shift_start_reminder_enabled","label":"Remind Before Shift Starts","fieldtype":"Check","default":"0"},
+  {"fieldname":"shift_start_reminder_minutes","label":"Minutes Before Shift Start","fieldtype":"Int","default":"30","depends_on":"shift_start_reminder_enabled"},
+  {"fieldname":"shift_end_reminder_enabled","label":"Remind Before Shift Ends","fieldtype":"Check","default":"0"},
+  {"fieldname":"shift_end_reminder_minutes","label":"Minutes Before Shift End","fieldtype":"Int","default":"15","depends_on":"shift_end_reminder_enabled"},
+  {"fieldname":"missing_checkin_reminder_enabled","label":"Remind When Employee Has Not Checked In","fieldtype":"Check","default":"0"},
+  {"fieldname":"missing_checkin_grace_minutes","label":"Minutes After Shift Start","fieldtype":"Int","default":"5","depends_on":"missing_checkin_reminder_enabled","description":"Wait this many minutes after shift start before checking for an IN log."},
+  {"fieldname":"document_expiry_notifications_enabled","label":"Document Expiry Notifications","fieldtype":"Check","default":"0"},
+  {"fieldname":"manager_notifications_enabled","label":"Manager Notifications","fieldtype":"Check","default":"1"},
+  {"fieldname":"delivery","label":"Delivery","fieldtype":"Section Break"},
+  {"fieldname":"default_language","label":"Default Language","fieldtype":"Select","options":"en\nar","default":"en"},
+  {"fieldname":"send_system_notification","label":"Also Send System Notification","fieldtype":"Check","default":"0"},
+  {"fieldname":"max_retry_count","label":"Max Retry Count","fieldtype":"Int","default":"2"},
+  {"fieldname":"batch_size","label":"Batch Size","fieldtype":"Int","default":"100"},
+  {"fieldname":"device_stale_days","label":"Disable Devices Inactive For (Days)","fieldtype":"Int","default":"0"},
+  {"fieldname":"expiry_rules","label":"Document Expiry Rules","fieldtype":"Table","options":"Mobile Document Expiry Rule"}
+ ],
+ "permissions":[
+  {"role":"System Manager","read":1,"write":1,"create":1},
+  {"role":"HR Manager","read":1,"write":1}
+ ]
+}
